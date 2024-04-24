@@ -7,7 +7,7 @@ const burger = () => {
     })
     close.addEventListener('click', () => {
         off.style.display = 'none'
-        close.style.color = 'red'
+        
     })
 } 
 
