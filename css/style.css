@@ -47,6 +47,8 @@ img {
     --color-dark-primary: #2A254B;
     --color-nav-linke: #726E8D;
     --color-primary: #4E4D93;
+    --font-clashDisplay: 'Clash Display';
+    --font-satoshi: 'Satoshi';
 }
 
 .btn {
@@ -64,11 +66,56 @@ img {
     background-color: var(--color-dark-primary);
 }
 
+.offset{
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(128, 128, 128, 0.8);
+    z-index: 1000;
+}
+
+.offset ul {
+    padding: 60px 0 0 0;
+    display: grid;
+    justify-items: center;
+    list-style-type: none;
+}
+
+.offset ul a {
+    text-decoration: none;
+    color: var(--color-white);
+    font-family: var(--font-clashDisplay);
+    font-size: 20px;
+}
+
+.offset ul a:hover {
+    color: var(--color-dark-primary);
+}
+
+.offset nav {
+    display: grid;
+    grid-template-rows: 30px 1fr;
+}
+
+.offset nav svg {
+    color: var(--color-white);
+    height: 100%;
+    justify-self: end;
+}
+
 body>header{
     display: grid;
     row-gap: 20px;
     padding: 20px 2vw;
     padding-top: 20px;
+}
+
+body>footer a {
+    text-decoration: none;
+    color: var(--color-white);
 }
 
 header>div {
@@ -119,24 +166,27 @@ header nav ul a:hover {
 }
 
 main section.lamp {
-    background-image: url(../images/lampa.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 0% 50%;
-    height: 45vw;
+    position: relative;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
-    padding-right: 8vw;
+    grid-template-rows: 44vw;
+}
+
+main section.lamp img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 main section.lamp div {
+    position: absolute;
+    right: 8vw;
+    top: 6vw;
+    grid-template-columns: 30vw;
+    bottom: 8vw;
     display: grid;
     row-gap: 20px;
     background-color: var(--color-white);
     grid-template-rows: max-content;
-    grid-column: 2/3;
-    height: 64%;
     padding: 5vw;
 }
 
@@ -144,7 +194,6 @@ main section.lamp div h1 {
     font-family: 'Clash Display';
     font-style: 32px;
     font-weight: 400;
-    width: 75%;
 }
 
 main section.lamp div span {
@@ -442,6 +491,10 @@ footer footer div {
     column-gap: 24px;
 }
 
+header div.burger svg:last-child{
+    display: none;
+}
+
 footer form h4 {
     font-family: 'Clash Display';
     font-weight: 400;
@@ -449,6 +502,126 @@ footer form h4 {
     padding-bottom: 16px;
 }
 
-footer>hr {
-    color: var(--color-primary);
+/* Адаптивность */
+
+@media screen and (max-width:390px) {
+    h2 {
+        font-size: 20px;
+    }
+    header>div {
+        grid-template-columns: 1fr 1fr;
+    }
+    header hr, header nav, header .icons svg{
+        display: none;
+    }
+    header>div span {
+        grid-column: 1/2;
+        grid-row: 1/2;
+        justify-self: start;
+    }
+    header>div svg {
+        grid-column: 2/3;
+        grid-row: 1/2;
+        justify-self: end;
+    }
+    header div.burger svg:last-child{
+        display: block;
+    }
+    header div.burger {
+        display: flex;
+        justify-self: end;
+        column-gap: 20px;
+    }
+    main section.lamp div h1 {
+        font-size: 24px;
+    }
+    main section.lamp div a {
+        text-align: center;
+        width: 100%;
+    }
+    main section.lamp div span {
+        font-size: 16px;
+    }
+    main section.lamp {
+        grid-template-rows: max-content;
+    }
+    main section.lamp div {
+        position: static;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        grid-template-columns: 1fr;
+        grid-row: 1/2;
+    }
+    main section.brand h2 {
+        font-size: 20px;
+        text-align-last: left;
+    }
+    main section.brand div {
+        grid-template-columns: 1fr;
+        row-gap: 26px;
+    }
+    main section.tovary div{
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 100px;
+    }
+    main section.tovary div article {
+        grid-template-rows: 163px 1fr;
+    }
+    main section.tovary a {
+        width: 100%;
+        text-align: center;
+    }
+    main section.idea {
+        grid-template-columns: 1fr;
+        grid-template-rows: max-content;
+        row-gap: 24px;
+    }
+    main section.idea h2 {
+        font-size: 20px;
+    }
+    main section.idea div span {
+        font-size: 14px;
+    }
+    main section.signUp {
+        padding: 20px;
+    }
+    main section.signUp h2 {
+        font-style: 24px;
+    }
+    main section.signUp p {
+        font-size: 14px;
+        width: 100%;
+        text-align: left;
+    }
+    main section.signUp div {
+        display: flex;
+        flex-direction: column;
+        row-gap: 8px;
+    }
+
+    footer header {
+        grid-template-columns: 1fr 1fr;
+        row-gap: 15px;
+    }
+    footer header form {
+        grid-row: 3/4;
+        grid-column: 1/3;
+    }
+    footer footer {
+        grid-template-columns: 1fr; 
+    }
+    footer footer article {
+        display: none;
+    }
+    footer footer span {
+        justify-self: center;
+    }
+    
+    
+
+
+
+
 }
