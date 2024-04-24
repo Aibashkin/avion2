@@ -604,6 +604,7 @@ footer form h4 {
     }
     main section.idea header span {
         font-size: 14px;
+        padding-bottom: 56px;
     }
     main section.signUp {
         padding: 20px;
