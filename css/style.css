@@ -242,6 +242,10 @@ main section.brand div article h3 {
     font-weight: 400;
 }
 
+main section.brand div article h3:nth-child(1) {
+    padding-bottom: 14px;
+}
+
 main section.brand div article p {
     font-family: 'Satoshi';
     font-weight: 400;
